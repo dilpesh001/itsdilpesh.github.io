@@ -56,20 +56,6 @@
 
 ---
 
-## 📈 GitHub Stats
-
-![Dilpesh's GitHub stats](https://github-readme-stats.vercel.app/api?username=itsdilpesh\&show_icons=true\&theme=tokyonight)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=itsdilpesh\&layout=compact\&theme=tokyonight)
-
----
-
-## 🔥 Contribution Streak
-
-![GitHub Streak](https://streak-stats.demolab.com?user=itsdilpesh\&theme=tokyonight)
-
----
-
 ## 📌 Featured Work
 
 * 🔗 API development & system integrations
