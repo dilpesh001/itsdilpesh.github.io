@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dilpesh | Portfolio</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dilpesh Badarshahi | Tech Lead</title>
+  <meta name="description" content="Dilpesh Badarshahi - Tech Lead, team leader, and full-stack engineer focused on scalable systems, AI automation, and high-performing teams.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050918;
+      --surface: rgba(18, 28, 52, 0.92);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #8b5cf6;
+      --border: rgba(148, 163, 184, 0.16);
+      --shadow: 0 30px 80px rgba(2, 12, 33, 0.45);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,154 +27,702 @@
       font-family: 'Inter', sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #0f172a;
-      color: #e2e8f0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.08), transparent 24%),
+                  radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.08), transparent 18%),
+                  var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 50%);
+      pointer-events: none;
     }
 
     header {
-      padding: 20px 50px;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 20;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #020617;
-      position: sticky;
-      top: 0;
+      background: rgba(5, 9, 24, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
     }
 
-    header h1 {
-      color: #38bdf8;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.24), rgba(139, 92, 246, 0.18));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .brand h1 {
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     nav a {
-      margin-left: 20px;
+      color: var(--muted);
       text-decoration: none;
-      color: #94a3b8;
-      transition: 0.3s;
+      font-size: 0.96rem;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      color: white;
-    }
-
-    section {
-      padding: 80px 50px;
-      max-width: 1100px;
-      margin: auto;
+      color: var(--text);
     }
 
     .hero {
-      text-align: center;
-      margin-top: 50px;
+      position: relative;
+      padding: 110px 24px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .hero h2 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      width: 780px;
+      height: 780px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.14), transparent 55%);
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .hero span {
-      color: #38bdf8;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.9fr);
+      gap: 32px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero p {
-      color: #94a3b8;
-      margin-bottom: 20px;
+    .hero-copy {
+      max-width: 720px;
     }
 
-    .btn {
-      background: #38bdf8;
-      color: #020617;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
       font-weight: 600;
+      margin-bottom: 26px;
+      font-size: 0.92rem;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-copy p {
+      margin-top: 26px;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 700px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-notes {
+      margin-top: 32px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-note {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero-card {
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 16px;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .hero-card p,
+    .hero-card li {
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 0.98rem;
+    }
+
+    .hero-card ul {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .hero-card li::before {
+      content: '•';
+      color: var(--accent-2);
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-top: 4px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .stat {
+      border-radius: 22px;
+      padding: 20px 22px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .stat h4 {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    section {
+      padding: 90px 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.1rem, 3vw, 3rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
-    .card {
-      background: #020617;
-      padding: 20px;
-      border-radius: 12px;
-      transition: 0.3s;
+    .columns-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .feature-card {
+      padding: 30px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      box-shadow: 0 24px 60px rgba(2, 12, 33, 0.25);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.24);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      color: #c7d2fe;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .feature-list {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 12px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .feature-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .skill-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: transform 0.2s ease;
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-2px);
+    }
+
+    #contact .grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .contact-card {
+      padding: 30px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      color: var(--text);
+    }
+
+    .contact-card a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
     footer {
+      padding: 32px 24px 48px;
       text-align: center;
-      padding: 20px;
-      color: #64748b;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .stats-grid,
+      .columns-2 {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 18px 24px;
+      }
+
+      .hero {
+        padding-top: 90px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-copy h2 {
+        font-size: 3rem;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
-
-<header>
-  <h1>itsdilpesh</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h2>Hi, I'm <span>Dilpesh</span> 👋</h2>
-  <p>Full Stack Developer | AI Enthusiast | Problem Solver</p>
-  <a href="https://www.linkedin.com/in/dilpesh-badarshahi/" class="btn">Connect</a>
-</section>
-
-<section id="about">
-  <h2>About Me</h2>
-  <p>I build scalable applications, APIs, and modern web experiences. Currently exploring AI, LLMs, and agent-based systems.</p>
-</section>
-
-<section id="skills">
-  <h2>Tech Stack</h2>
-  <div class="grid">
-    <div class="card">PHP / Laravel</div>
-    <div class="card">Node.js / NestJS</div>
-    <div class="card">React / Next.js</div>
-    <div class="card">Vue / Angular</div>
-    <div class="card">PostgreSQL / MySQL</div>
-    <div class="card">Docker / Redis</div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>eCommerce Platform</h3>
-      <p>Scalable backend system with API integrations.</p>
+  <header>
+    <div class="brand">
+      <div class="logo">DB</div>
+      <h1>Dilpesh Badarshahi</h1>
     </div>
-    <div class="card">
-      <h3>Payment Integration</h3>
-      <p>Integrated Clover API with secure transactions.</p>
-    </div>
-    <div class="card">
-      <h3>AI Experiments</h3>
-      <p>Working on LLM-based tools and AI agents.</p>
-    </div>
-  </div>
-</section>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<footer>
-  © <span id="year"></span> Dilpesh Badarshahi | Built with ❤️
-</footer>
+  <main>
+    <section class="hero">
+      <div class="hero-grid fade show">
+        <div class="hero-copy">
+          <span class="eyebrow">Tech Lead • Team Lead • Product-focused Engineer</span>
+          <h2>Building resilient platforms, AI-enabled workflows, and high-performing engineering teams.</h2>
+          <p>
+            I lead cross-functional engineers to deliver scalable software with strong system design, modern frontend experiences, and automation powered by AI.
+            Over 11+ years in development, I’ve guided teams for 6+ years with a strong focus on delivery, reliability, and future-ready products.
+          </p>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+          <div class="hero-actions">
+            <a href="mailto:dilpesh.badarshahi@gmail.com" class="btn-primary">Let's connect</a>
+            <a href="db.pdf" target="_blank" class="btn-secondary">Download Resume</a>
+          </div>
 
+          <div class="hero-notes">
+            <div class="hero-note">11+ years of full-stack product engineering</div>
+            <div class="hero-note">6+ years mentoring and leading dev teams</div>
+            <div class="hero-note">AI / LLM workflows, automation, and product velocity</div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="hero-card">
+            <h3>Leadership focus</h3>
+            <p>
+              I help engineering groups align on architecture, accelerate delivery, and build systems that scale with low friction. My work blends backend reliability, frontend product polish, and operational excellence.
+            </p>
+            <ul>
+              <li>Driving architecture decisions and technical direction</li>
+              <li>Coaching engineers and building high-trust teams</li>
+              <li>Turning product goals into reliable execution</li>
+            </ul>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat">
+              <h4>Experience</h4>
+              <strong>11+</strong>
+              years building web platforms
+            </div>
+            <div class="stat">
+              <h4>Leadership</h4>
+              <strong>6+</strong>
+              years guiding teams and programs
+            </div>
+            <div class="stat">
+              <h4>Impact</h4>
+              <strong>Chrome</strong>
+              extension delivery and workflow automation
+            </div>
+            <div class="stat">
+              <h4>Focus</h4>
+              <strong>AI / LLM</strong>
+              experimentation and automation
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="fade">
+      <div class="section-head">
+        <div>
+          <h2>About me</h2>
+          <p>
+            I am a Tech Lead who pairs strong technical ownership with practical product thinking. I create maintainable systems, streamline delivery, and help teams ship with confidence.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid columns-2">
+        <div class="feature-card">
+          <h3>What I lead</h3>
+          <p>
+            I focus on building platforms that are easy to operate, secure, and extend. I help teams make the right technical trade-offs and deliver features faster without sacrificing reliability.
+          </p>
+          <div class="feature-list">
+            <li>Building API-first backend systems and integrations</li>
+            <li>Improving team velocity through better process</li>
+            <li>Delivering maintainable frontend experiences</li>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <h3>How I work</h3>
+          <p>
+            I bridge product and engineering by making complex ideas simple, defining clear execution paths, and continuously improving how teams collaborate.
+          </p>
+          <div class="feature-list">
+            <li>Coaching developers through architecture and delivery</li>
+            <li>Balancing speed, quality, and long-term maintainability</li>
+            <li>Using AI and automation to reduce manual complexity</li>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="fade">
+      <div class="section-head">
+        <div>
+          <h2>Core skills</h2>
+          <p>
+            My tech stack blends production-grade backend platforms, modern frontend frameworks, and the tooling that keeps engineering teams moving fast.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid skills-grid">
+        <div class="skill-pill">JavaScript</div>
+        <div class="skill-pill">TypeScript</div>
+        <div class="skill-pill">React</div>
+        <div class="skill-pill">Next.js</div>
+        <div class="skill-pill">Vue.js</div>
+        <div class="skill-pill">Angular</div>
+        <div class="skill-pill">Node.js</div>
+        <div class="skill-pill">NestJS</div>
+        <div class="skill-pill">Laravel</div>
+        <div class="skill-pill">PHP</div>
+        <div class="skill-pill">PostgreSQL</div>
+        <div class="skill-pill">MySQL</div>
+        <div class="skill-pill">Docker</div>
+        <div class="skill-pill">Redis</div>
+        <div class="skill-pill">Linux</div>
+        <div class="skill-pill">CI/CD</div>
+        <div class="skill-pill">AI / LLM</div>
+        <div class="skill-pill">System Design</div>
+        <div class="skill-pill">Team Mentorship</div>
+        <div class="skill-pill">API Integrations</div>
+      </div>
+    </section>
+
+    <section id="work" class="fade">
+      <div class="section-head">
+        <div>
+          <h2>Featured work</h2>
+          <p>
+            A product-led case study that shows how I take a real problem, design a clean workflow, and launch something users can rely on.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="pill">Chrome extension</span>
+        <h3>Logix — Smart time tracking for Keka attendance</h3>
+        <p>
+          Logix is a lightweight Chrome extension that automates attendance logging in Keka. It eliminates manual entry, supports flexible schedules, and delivers accurate time tracking with one click.
+        </p>
+
+        <div class="feature-list">
+          <li><strong>Problem:</strong> manual Keka attendance is slow, repetitive, and error-prone.</li>
+          <li><strong>Solution:</strong> one-click automation directly on the Keka attendance dashboard.</li>
+          <li><strong>Impact:</strong> faster logging, fewer mistakes, and more reliable attendance records.</li>
+        </div>
+
+        <p style="margin-top: 24px; color: var(--muted);">
+          Key capabilities include multi-location support, lunch break deduction, real-time hour tracking, and a clean user experience that works immediately after install.
+        </p>
+
+        <a href="https://chromewebstore.google.com/detail/nlgdhbooadoofkcnfilbhffncnifibhm" target="_blank" class="btn-primary" style="margin-top: 22px; display: inline-flex;">View live extension</a>
+      </div>
+    </section>
+
+    <section id="contact" class="fade">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p>
+            If you want someone who can lead engineering execution, shape product direction, and help teams build with confidence, let's connect.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p>dilpesh.badarshahi@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/dilpesh-badarshahi/" target="_blank">linkedin.com/in/dilpesh-badarshahi</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Resume</h3>
+          <p><a href="db.pdf" target="_blank">Download CV</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Dilpesh Badarshahi — Tech Lead
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const faders = document.querySelectorAll('.fade');
+    const onScroll = () => {
+      faders.forEach(el => {
+        const boundary = el.getBoundingClientRect();
+        if (boundary.top < window.innerHeight - 120) {
+          el.classList.add('show');
+        }
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+  </script>
 </body>
 </html>
